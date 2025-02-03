@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .input-field {
+    @apply w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-secondary active:border-secondary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-secondary;
+  }
+
+  .select-field {
+    @apply relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-secondary active:border-secondary dark:border-form-strokedark dark:bg-form-input;
+  }
+
+  .field-label {
+    @apply mb-3 block text-sm font-medium text-black dark:text-white;
+  }
+}
