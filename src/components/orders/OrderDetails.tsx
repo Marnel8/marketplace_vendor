@@ -59,7 +59,7 @@ export const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="w-full max-w-3xl rounded-xl bg-white shadow-xl dark:bg-boxdark"
+        className="w-full max-w-[400px] rounded-xl bg-white shadow-xl dark:bg-boxdark md:max-w-3xl"
         onClick={handleModalClick}
       >
         <div className="space-y-6 p-6">

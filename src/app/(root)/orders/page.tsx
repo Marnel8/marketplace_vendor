@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const OrdersPage = () => {
   return (
     <DefaultLayout>
-      <div className="mx-auto ">
+      <div className="mx-auto">
         <Breadcrumb pageName="Orders" />
         <div>
           <OrdersTable />

@@ -48,7 +48,7 @@ export const StatusActions: React.FC<StatusActionsProps> = ({
         <div className="relative" ref={selectRef}>
           <button
             type="button"
-            className={`flex w-40 items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium capitalize shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${getStatusColor(currentStatus)}`}
+            className={`flex w-30 items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium capitalize shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${getStatusColor(currentStatus)}`}
             onClick={() => setIsOpen(!isOpen)}
             aria-haspopup="listbox"
             aria-expanded={isOpen}
@@ -60,7 +60,7 @@ export const StatusActions: React.FC<StatusActionsProps> = ({
           </button>
           {isOpen && (
             <ul
-              className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute z-10 mt-1 max-h-40 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="listbox"
             >
               {Object.values(OrderStatus).map((status) => (

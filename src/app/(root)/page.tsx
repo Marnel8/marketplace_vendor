@@ -5,7 +5,7 @@ import UnderConstructionPage from "@/components/UnderConstructionPage";
 
 export const metadata: Metadata = {
   title: "BatStateU Marketplace",
-  description: "This is Next.js Home for TailAdmin Dashboard Template",
+  description: "This is BatStateU Marketplace Vendors Dashboard",
 };
 
 export default function Home() {

@@ -2,7 +2,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Star, Eye, Pencil, Trash2, Share2 } from "lucide-react";
-import { useDeleteProduct, useGetProductByID } from "@/hooks/useProducts";
+import {
+  useDeleteProduct,
+  useGetProductByID,
+  useUpdateProduct,
+} from "@/hooks/useProducts";
 import MiniSpinner from "@/components/spinner/mini-spinner";
 import { getImageUrl } from "@/utils/imageUtils";
 import toast from "react-hot-toast";
@@ -47,6 +51,9 @@ export default function ProductDetails({ productId }: { productId: string }) {
   const { mutateAsync: deleteProduct, isPending: isDeleting } =
     useDeleteProduct();
 
+  const { mutateAsync: updateProduct, isPending: isUpdating } =
+    useUpdateProduct();
+
   const router = useRouter();
 
   const handleDeleteProduct = async (productId: string) => {
@@ -61,6 +68,21 @@ export default function ProductDetails({ productId }: { productId: string }) {
   };
 
   if (isProductDetailsFetching) return <MiniSpinner />;
+
+  const handleEditProduct = async () => {
+    try {
+      const productData = {
+        id: product.id,
+        stock: Number(quantity),
+      };
+
+      await updateProduct(productData);
+
+      toast.success("Product Updated.");
+    } catch (error) {
+      toast.error("Failed to edit product");
+    }
+  };
 
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -209,9 +231,13 @@ export default function ProductDetails({ productId }: { productId: string }) {
               </div>
 
               <div className="flex gap-4">
-                <button className="border-spartans-red text-spartans-red hover:bg-spartans-red/10 inline-flex flex-1 items-center justify-center rounded-md border px-4 py-2">
+                <button
+                  onClick={handleEditProduct}
+                  disabled={isUpdating}
+                  className="border-spartans-red text-spartans-red hover:bg-spartans-red/10 inline-flex flex-1 items-center justify-center rounded-md border px-4 py-2"
+                >
                   <Pencil className="mr-2 h-4 w-4" />
-                  Edit Product
+                  {isUpdating ? "Updating item..." : "Edit Product"}
                 </button>
                 <button
                   onClick={() => handleDeleteProduct(product.id)}
