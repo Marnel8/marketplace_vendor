@@ -81,7 +81,7 @@ const OrdersTable = () => {
                       {order.item.name}
                     </h5>
                     <p className="text-sm">
-                      ${order.totalPrice.toLocaleString()}
+                      ₱{order.totalPrice.toLocaleString()}
                     </p>
                   </td>
                   <td className="px-4 py-5">
