@@ -1,8 +1,9 @@
 export enum OrderStatus {
   PENDING = "pending",
-  TO_BE_PICKED_UP = "to pick up",
   CONFIRMED = "confirmed",
   APPROVED = "approved",
+  PAID = "paid",
+  TO_BE_PICKED_UP = "to pick up",
   SUCCESS = "success",
   CANCELLED = "cancelled",
   DENIED = "denied",
@@ -19,6 +20,8 @@ export const getStatusColor = (status: OrderStatus) => {
     [OrderStatus.APPROVED]:
       "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-500",
     [OrderStatus.SUCCESS]:
+      "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-500",
+    [OrderStatus.PAID]:
       "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-500",
     [OrderStatus.CANCELLED]:
       "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-500",
